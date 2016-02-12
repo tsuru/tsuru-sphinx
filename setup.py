@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 setup(
     name="tsuru-sphinx",
     url="https://github.com/tsuru/tsuru-sphinx",
-    version='0.1.0',
+    version='0.1.3',
     description="Sphinx extensions used in tsuru documentation",
     author="Tsuru",
     author_email="tsuru@corp.globo.com",

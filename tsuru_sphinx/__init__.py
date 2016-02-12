@@ -88,8 +88,18 @@ def render_cmd(app, node, usage, description):
 
 def read_cmds(app):
     if not hasattr(app.env, 'tsuru_json'):
-        with open('cmds.json', 'r') as f:
-            data = json.loads(f.read())
+        dirs = ['.', 'docs', '..']
+        f = None
+        for d in dirs:
+            try:
+                f = open(os.path.join(d, 'cmds.json'))
+                break
+            except IOError:
+                pass
+        if f is None:
+            raise Exception("cmds.json file not found")
+        data = json.loads(f.read())
+        f.close()
         app.env.tsuru_json = data
 
 
