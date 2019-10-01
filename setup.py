@@ -19,7 +19,7 @@ setup(
     include_package_data=True,
     install_requires=[
         "docutils==0.12",
-        "PyYAML==3.11",
+        "PyYAML==5.1",
     ],
     entry_points={
         'console_scripts': [
