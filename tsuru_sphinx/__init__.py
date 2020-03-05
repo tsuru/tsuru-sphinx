@@ -116,8 +116,8 @@ def main():
         base_cmd = sys.argv[1]
     if len(sys.argv) > 2:
         destination = sys.argv[2]
-    parts_regex = re.compile(r'{} version.*Usage: (.*?)\n+(.*)'.format(base_cmd), re.DOTALL)
-    topic_regex = re.compile(r'{} version.*?\n+(.*)\n\n.*?\n\n  '.format(base_cmd), re.DOTALL)
+    parts_regex = re.compile(r'.+? version.*Usage: (.*?)\n+(.*)', re.DOTALL)
+    topic_regex = re.compile(r'.+? version.*?\n+(.*)\n\n.*?\n\n  ', re.DOTALL)
 
     result = check_output("{0} | egrep \"^[  ]\" | awk -F ' ' '{{print $1}}'".format(base_cmd), shell=True)
     cmds = result.split('\n')
